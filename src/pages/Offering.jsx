@@ -13,13 +13,13 @@ const Offering = () => {
     if (isModalOpen) {
       const editor = grapesjs.init({
         container: "#gjs",
-        height: "100vh",
+        height: "79vh",
         width: "auto",
         storageManager: {
           id: "gjs-",
           type: "local",
           autosave: true,
-          autoload: true,
+          autoload: false,
           stepsBeforeSave: 1,
         },
         blockManager: {
@@ -48,6 +48,7 @@ const Offering = () => {
             {
               id: "heading-block",
               label: "Heading",
+              icon: "<i class='fas fa-heading'></i>",
               content: `
                 <h2 style="color: #333;">This is a Heading</h2>
                 <p style="color: #666;">This is a supporting paragraph for the heading above.</p>
