@@ -5,8 +5,8 @@ import "../pages/Offering.css";
 
 const Offering = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [savedUIs, setSavedUIs] = useState([]);  // State to store saved UIs
-  const [isAlertVisible, setIsAlertVisible] = useState(false); // To control alert visibility
+  const [savedUIs, setSavedUIs] = useState([]); 
+  const [isAlertVisible, setIsAlertVisible] = useState(false); 
   const editorRef = useRef(null);
 
   useEffect(() => {
@@ -32,8 +32,13 @@ const Offering = () => {
                 <header style="background-color: #4caf50; color: white; padding: 20px;">
                   <div style="display: flex; justify-content: space-between; align-items: center;">
                     <h1 style="margin: 0;">My Website</h1>
-                    <nav>
-                      <ul style="list-style: none; display: flex; margin: 0; padding: 0; gap: 15px;">
+                    <button id="menu-toggle" 
+                            style="display: none; background: transparent; border: none; font-size: 1.5rem; color: white; cursor: pointer;">
+                      ☰
+                    </button>
+                    <nav id="navbar" 
+                         style="display: flex; list-style: none; gap: 15px; margin: 0; padding: 0; flex-direction: row;">
+                      <ul style="list-style: none; display: flex; gap: 15px; margin: 0; padding: 0;">
                         <li><a href="#" style="color: white; text-decoration: none;">Home</a></li>
                         <li><a href="#" style="color: white; text-decoration: none;">About</a></li>
                         <li><a href="#" style="color: white; text-decoration: none;">Services</a></li>
@@ -42,9 +47,36 @@ const Offering = () => {
                     </nav>
                   </div>
                 </header>
+                <style>
+                  /* Responsive styles */
+                  @media (max-width: 768px) {
+                    #menu-toggle {
+                      display: block;
+                    }
+                    #navbar {
+                      display: none; /* Initially hide navbar for small screens */
+                      flex-direction: column;
+                      gap: 10px;
+                    }
+                    #navbar.show {
+                      display: flex; /* Show navbar when toggle is active */
+                    }
+                  }
+                </style>
+                <script>
+                  document.addEventListener('DOMContentLoaded', () => {
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const navbar = document.getElementById('navbar');
+                    
+                    menuToggle.addEventListener('click', () => {
+                      navbar.classList.toggle('show'); // Toggle 'show' class
+                    });
+                  });
+                </script>
               `,
               category: "Sections",
             },
+
             {
               id: "heading-block",
               label: "Heading",
@@ -196,17 +228,16 @@ const Offering = () => {
     const savedUI = editorRef.current;
     const html = savedUI.getHtml();
     const css = savedUI.getCss();
-      const completeHTML = `
+    const completeHTML = `
       <style>
         ${css}
       </style>
       ${html}
     `;
-  
+
     setSavedUIs([...savedUIs, completeHTML]);
     setIsAlertVisible(true); // Show alert after saving
   };
-  
 
   const handleAlertClose = () => {
     setIsAlertVisible(false);
@@ -242,7 +273,7 @@ const Offering = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: 9999,  // Ensure the modal is at the front
+            zIndex: 9999, // Ensure the modal is at the front
           }}
         >
           <div
@@ -253,7 +284,7 @@ const Offering = () => {
               backgroundColor: "#fff",
               borderRadius: "10px",
               overflow: "hidden",
-              zIndex: 10000,  // Ensure the modal content is at the front
+              zIndex: 10000, // Ensure the modal content is at the front
             }}
           >
             <button
@@ -268,7 +299,7 @@ const Offering = () => {
                 border: "none",
                 borderRadius: "5px",
                 cursor: "pointer",
-                zIndex: 10001,  // Ensure the close button is at the front
+                zIndex: 10001, // Ensure the close button is at the front
               }}
             >
               Close
@@ -299,7 +330,7 @@ const Offering = () => {
                 bottom: "20px",
                 left: "50%",
                 transform: "translateX(-50%)", // Ensure center alignment
-                zIndex: 10002,  // Ensure save button is in front of other elements
+                zIndex: 10002, // Ensure save button is in front of other elements
               }}
             >
               Save
@@ -345,7 +376,14 @@ const Offering = () => {
       <div style={{ marginTop: "50px" }}>
         <h2>Saved UIs</h2>
         {savedUIs.map((ui, index) => (
-          <div key={index} style={{ border: "1px solid #ddd", marginBottom: "20px", padding: "10px" }}>
+          <div
+            key={index}
+            style={{
+              border: "1px solid #ddd",
+              marginBottom: "20px",
+              padding: "10px",
+            }}
+          >
             <div dangerouslySetInnerHTML={{ __html: ui }} />
           </div>
         ))}
