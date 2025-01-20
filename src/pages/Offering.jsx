@@ -91,6 +91,26 @@ const Offering = () => {
               `,
               category: "Layout",
             },
+            {
+              id: "footer-block",
+              label: "Footer",
+              content: `
+                <footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
+                  <p style="margin: 0;">&copy; 2025 My Website. All rights reserved.</p>
+                  <div style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;">
+                    <a href="#" style="color: white; text-decoration: none;">Privacy Policy</a> |
+                    <a href="#" style="color: white; text-decoration: none;">Terms of Service</a> |
+                    <a href="#" style="color: white; text-decoration: none;">Contact Us</a>
+                  </div>
+                  <div style="margin-top: 15px;">
+                    <i class="fa fa-facebook" style="color: #3b5998; margin-right: 10px;"></i>
+                    <i class="fa fa-twitter" style="color: #00acee; margin-right: 10px;"></i>
+                    <i class="fa fa-instagram" style="color: #e1306c;"></i>
+                  </div>
+                </footer>
+              `,
+              category: "Sections",
+            },
 
             {
               id: "heading-block",
@@ -343,7 +363,7 @@ const Offering = () => {
                 cursor: "pointer",
                 position: "absolute",
                 bottom: "20px",
-                left: "50%",
+                left: "94%",
                 transform: "translateX(-50%)", // Ensure center alignment
                 zIndex: 10002, // Ensure save button is in front of other elements
               }}
