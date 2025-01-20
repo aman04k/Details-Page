@@ -46,34 +46,73 @@ const Offering = () => {
               category: "Sections",
             },
             {
-              id: "button-block",
-              label: "Button",
+              id: "heading-block",
+              label: "Heading",
               content: `
-                <button style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                  Click Me
-                </button>
+                <h2 style="color: #333;">This is a Heading</h2>
+                <p style="color: #666;">This is a supporting paragraph for the heading above.</p>
               `,
-              category: "Components",
+              category: "Text",
             },
             {
-              id: "image-gallery-block",
-              label: "Image Gallery",
+              id: "paragraph-block",
+              label: "Paragraph",
               content: `
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                  <img src="https://via.placeholder.com/150" alt="Gallery Item" style="width: 100%; height: auto;" />
-                  <img src="https://via.placeholder.com/150" alt="Gallery Item" style="width: 100%; height: auto;" />
-                  <img src="https://via.placeholder.com/150" alt="Gallery Item" style="width: 100%; height: auto;" />
-                </div>
+                <p style="color: #333; font-size: 16px;">
+                  This is a simple paragraph block. You can use it to add descriptive content to your webpage.
+                </p>
               `,
-              category: "Sections",
+              category: "Text",
             },
             {
-              id: "testimonial-block",
-              label: "Testimonial",
+              id: "list-block",
+              label: "List",
               content: `
-                <div style="border: 1px solid #ddd; padding: 20px; border-radius: 10px; max-width: 400px;">
-                  <p style="font-style: italic; color: #666;">"This is a testimonial. The service was excellent and exceeded expectations."</p>
-                  <p style="text-align: right; font-weight: bold; color: #333;">- John Doe</p>
+                <ul style="color: #333; padding-left: 20px;">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                </ul>
+              `,
+              category: "Text",
+            },
+            {
+              id: "image-block",
+              label: "Image",
+              content: `
+                <img src="https://via.placeholder.com/400x300" alt="Placeholder Image" style="width: 100%; height: auto; border-radius: 5px;" />
+              `,
+              category: "Media",
+            },
+            {
+              id: "video-block",
+              label: "Video",
+              content: `
+                <video controls style="width: 100%; max-height: 300px; border-radius: 5px;">
+                  <source src="https://www.example.com/video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              `,
+              category: "Media",
+            },
+            {
+              id: "blockquote-block",
+              label: "Blockquote",
+              content: `
+                <blockquote style="border-left: 4px solid #4caf50; padding-left: 10px; color: #666; font-style: italic;">
+                  "This is an example of a blockquote. Use it to highlight important quotes or messages."
+                </blockquote>
+              `,
+              category: "Text",
+            },
+            {
+              id: "icon-block",
+              label: "Icons",
+              content: `
+                <div style="display: flex; gap: 10px;">
+                  <i class="fa fa-facebook" style="font-size: 24px; color: #3b5998;"></i>
+                  <i class="fa fa-twitter" style="font-size: 24px; color: #00acee;"></i>
+                  <i class="fa fa-instagram" style="font-size: 24px; color: #e1306c;"></i>
                 </div>
               `,
               category: "Components",
@@ -82,7 +121,7 @@ const Offering = () => {
               id: "form-block",
               label: "Form",
               content: `
-                <form style="border: 1px solid #ddd; padding: 20px; border-radius: 10px; max-width: 400px;">
+                <form style="border: 1px solid #ddd; padding: 20px; border-radius: 10px; max-width: 400px; margin: 0 auto;">
                   <label for="name" style="display: block; margin-bottom: 10px; color: #333;">Name:</label>
                   <input type="text" id="name" name="name" placeholder="Enter your name" style="width: 100%; padding: 8px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px;" />
                   <label for="email" style="display: block; margin-bottom: 10px; color: #333;">Email:</label>
@@ -91,20 +130,6 @@ const Offering = () => {
                 </form>
               `,
               category: "Components",
-            },
-            {
-              id: "footer-block",
-              label: "Footer",
-              content: `
-                <footer style="background-color: #222; color: #ccc; padding: 10px; text-align: center;">
-                  <p>© 2025 My Website. All rights reserved.</p>
-                  <ul style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 15px;">
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Privacy Policy</a></li>
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Terms of Service</a></li>
-                  </ul>
-                </footer>
-              `,
-              category: "Sections",
             },
             {
               id: "card-block",
@@ -120,6 +145,36 @@ const Offering = () => {
                 </div>
               `,
               category: "Components",
+            },
+            {
+              id: "newsletter-block",
+              label: "Newsletter Subscription",
+              content: `
+                <form style="display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto;">
+                  <input type="email" placeholder="Enter your email" style="padding: 8px; border: 1px solid #ddd; border-radius: 5px;" />
+                  <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+                    Subscribe
+                  </button>
+                </form>
+              `,
+              category: "Components",
+            },
+            {
+              id: "timeline-block",
+              label: "Timeline",
+              content: `
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                  <div style="border-left: 4px solid #4caf50; padding-left: 10px;">
+                    <h4 style="margin: 0;">Event 1</h4>
+                    <p style="margin: 0;">Description of event 1.</p>
+                  </div>
+                  <div style="border-left: 4px solid #4caf50; padding-left: 10px;">
+                    <h4 style="margin: 0;">Event 2</h4>
+                    <p style="margin: 0;">Description of event 2.</p>
+                  </div>
+                </div>
+              `,
+              category: "Sections",
             },
           ],
         },
