@@ -119,14 +119,14 @@
   font-weight: bold;
   background-color: red;
   border-bottom: none;
-  border-top-right-radius: 50px;
+  border-top-right-radius: 32px 50px;
 }
 
 .tab:hover {
   background-color: red;
   color: white;
   font-weight: bold;
-  border-top-right-radius: 50px;
+  border-top-right-radius:32px 50px;
 
 }
 

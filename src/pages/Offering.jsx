@@ -193,10 +193,20 @@ const Offering = () => {
   const closeModal = () => setIsModalOpen(false);
 
   const saveUI = () => {
-    const savedUI = editorRef.current.getHtml(); // Get the HTML of the created UI
-    setSavedUIs([...savedUIs, savedUI]); // Save it to the state
+    const savedUI = editorRef.current;
+    const html = savedUI.getHtml();
+    const css = savedUI.getCss();
+      const completeHTML = `
+      <style>
+        ${css}
+      </style>
+      ${html}
+    `;
+  
+    setSavedUIs([...savedUIs, completeHTML]);
     setIsAlertVisible(true); // Show alert after saving
   };
+  
 
   const handleAlertClose = () => {
     setIsAlertVisible(false);
