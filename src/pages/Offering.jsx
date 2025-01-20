@@ -5,8 +5,8 @@ import "../pages/Offering.css";
 
 const Offering = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [savedUIs, setSavedUIs] = useState([]); 
-  const [isAlertVisible, setIsAlertVisible] = useState(false); 
+  const [savedUIs, setSavedUIs] = useState([]);
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
   const editorRef = useRef(null);
 
   useEffect(() => {
@@ -75,6 +75,21 @@ const Offering = () => {
                 </script>
               `,
               category: "Sections",
+            },
+            {
+              id: "two-column-block",
+              label: "2 Columns",
+              content: `
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                  <div style="background-color: #f9f9f9; padding: 20px; text-align: center; border: 1px solid #ddd; border-radius: 5px;">
+                    Column 1
+                  </div>
+                  <div style="background-color: #f9f9f9; padding: 20px; text-align: center; border: 1px solid #ddd; border-radius: 5px;">
+                    Column 2
+                  </div>
+                </div>
+              `,
+              category: "Layout",
             },
 
             {
