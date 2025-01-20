@@ -5,6 +5,8 @@ import "../pages/Offering.css";
 
 const Offering = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [savedUIs, setSavedUIs] = useState([]);  // State to store saved UIs
+  const [isAlertVisible, setIsAlertVisible] = useState(false); // To control alert visibility
   const editorRef = useRef(null);
 
   useEffect(() => {
@@ -134,6 +136,17 @@ const Offering = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  const saveUI = () => {
+    const savedUI = editorRef.current.getHtml(); // Get the HTML of the created UI
+    setSavedUIs([...savedUIs, savedUI]); // Save it to the state
+    setIsAlertVisible(true); // Show alert after saving
+  };
+
+  const handleAlertClose = () => {
+    setIsAlertVisible(false);
+    closeModal(); // Close modal when OK is clicked
+  };
+
   return (
     <div>
       <button
@@ -163,7 +176,7 @@ const Offering = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: 1000,
+            zIndex: 9999,  // Ensure the modal is at the front
           }}
         >
           <div
@@ -174,6 +187,7 @@ const Offering = () => {
               backgroundColor: "#fff",
               borderRadius: "10px",
               overflow: "hidden",
+              zIndex: 10000,  // Ensure the modal content is at the front
             }}
           >
             <button
@@ -188,7 +202,7 @@ const Offering = () => {
                 border: "none",
                 borderRadius: "5px",
                 cursor: "pointer",
-                zIndex: 1001,
+                zIndex: 10001,  // Ensure the close button is at the front
               }}
             >
               Close
@@ -205,9 +219,71 @@ const Offering = () => {
               />
               <div id="gjs" style={{ flex: 1, background: "#fff" }} />
             </div>
+            {/* Save button placement */}
+            <button
+              onClick={saveUI}
+              style={{
+                padding: "10px 20px",
+                backgroundColor: "#4caf50",
+                color: "#fff",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+                position: "absolute",
+                bottom: "20px",
+                left: "50%",
+                transform: "translateX(-50%)", // Ensure center alignment
+                zIndex: 10002,  // Ensure save button is in front of other elements
+              }}
+            >
+              Save
+            </button>
           </div>
         </div>
       )}
+
+      {/* Alert Box */}
+      {isAlertVisible && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            padding: "20px",
+            backgroundColor: "#fff",
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            zIndex: 10003,
+          }}
+        >
+          <h3>UI Saved Successfully!</h3>
+          <button
+            onClick={handleAlertClose}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#4caf50",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+              marginTop: "10px",
+            }}
+          >
+            OK
+          </button>
+        </div>
+      )}
+
+      <div style={{ marginTop: "50px" }}>
+        <h2>Saved UIs</h2>
+        {savedUIs.map((ui, index) => (
+          <div key={index} style={{ border: "1px solid #ddd", marginBottom: "20px", padding: "10px" }}>
+            <div dangerouslySetInnerHTML={{ __html: ui }} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

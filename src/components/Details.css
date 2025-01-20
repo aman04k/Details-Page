@@ -11,7 +11,7 @@
 
 /* Sidebar */
 .sidebar {
-  background-color: #fff;
+  background-color: #f0f0f0;
   border-right: 1px solid #e0e0e0;
   padding: 20px;
   margin-left: 9%;
@@ -92,7 +92,7 @@
 /* Main Content */
 .main-content {
   flex: 3;
-  background-color: #fff;
+  background-color: #f0f0f0;
   padding: 20px;
   border-radius: 0 10px 10px 0;
 }
@@ -115,15 +115,19 @@
 }
 
 .tab.active {
-  color: red;
+  color: white;
   font-weight: bold;
-  background-color: #fff;
-  border: 2px solid red;
+  background-color: red;
   border-bottom: none;
+  border-top-right-radius: 50px;
 }
 
 .tab:hover {
-  background-color: #e7f1ff;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-top-right-radius: 50px;
+
 }
 
 .tab:last-child {
@@ -132,7 +136,7 @@
 
 .tab-content {
   padding: 20px;
-  background-color: #fff;
+  background-color: #f0f0f0;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   margin-top: 10px;

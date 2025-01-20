@@ -3,11 +3,10 @@ import "../components/Details.css";
 import Faq from "../pages/Faq";
 import Community from "../pages/Community";
 import Offering from "../pages/Offering";
-// import CustomUi from "../pages/CustomUI";
 
 const Details = () => {
-  const [tabs, setTabs] = useState(["Overview","Statistics", "Community", "FAQ", "Offering"]);
-  const [activeTabs, setActiveTabs] = useState(["Community", "FAQ", "Offering"]);
+  const [tabs, setTabs] = useState(["Overview","Statistics", "Community", "Faq", "Offering"]);
+  const [activeTabs, setActiveTabs] = useState(["Community", "Faq", "Offering"]);
   const [selectedTab, setSelectedTab] = useState("Overview");
   const [newTabName, setNewTabName] = useState("");
 
@@ -144,8 +143,8 @@ const Details = () => {
              <Community />
             </div>
           )}
-          {selectedTab === "FAQ" && (
-            <div className="faq">
+          {selectedTab === "Faq" && (
+            <div className="Faq">
               <Faq />
             </div>
           )}
