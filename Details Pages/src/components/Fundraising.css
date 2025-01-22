@@ -46,7 +46,7 @@ body {
   
   .filters button.active,
   .filters button:hover {
-    background: #4f46e5;
+    background: rgb(24, 59, 86);
     color: #fff;
   }
   

@@ -4,12 +4,26 @@ import Faq from "../pages/Faq";
 import Community from "../pages/Community";
 import Offering from "../pages/Offering";
 import FundraisingStats from "../components/FundraisingStats";
+import { IoMenu } from "react-icons/io5";
 
-const Details = ({ isCreatorUser }) => {
-  const [tabs, setTabs] = useState(["Overview", "Statistics", "Community", "Faq", "Offering", "Discussions"]);
-  const [activeTabs, setActiveTabs] = useState(["Community", "Faq", "Offering", "Discussions"]);
+const Details = () => {
+  const [tabs, setTabs] = useState([
+    "Overview",
+    "Statistics",
+    "Community",
+    "Faq",
+    "Offering",
+    "Discussions",
+  ]);
+  const [activeTabs, setActiveTabs] = useState([
+    "Community",
+    "Faq",
+    "Offering",
+    "Discussions",
+  ]);
   const [selectedTab, setSelectedTab] = useState("Overview");
   const [newTabName, setNewTabName] = useState("");
+  const [isCreatorUser, setIsCreatorUser] = useState(false); // Default to user mode
 
   const toggleTab = (tab) => {
     if (activeTabs.includes(tab)) {
@@ -30,15 +44,47 @@ const Details = ({ isCreatorUser }) => {
     }
   };
 
+  const handleToggleMode = (mode) => {
+    setIsCreatorUser(mode === "creator");
+  };
+
   return (
     <div className="container">
       {/* Sidebar */}
       <div className="sidebar">
+        {/* Toggle icon */}
+        <div className="toggle-icon">
+          <IoMenu className="menu-icon" />
+          <div className="toggle-menu">
+            <button
+              onClick={() => handleToggleMode("creator")}
+              className={isCreatorUser ? "active" : ""}
+            >
+              Creator
+            </button>
+            <button
+              onClick={() => handleToggleMode("user")}
+              className={!isCreatorUser ? "active" : ""}
+            >
+              User
+            </button>
+          </div>
+        </div>
         <h3>Manage Tabs</h3>
+
+        {/* Manage Tabs Section */}
         <ul className="manage-tabs">
           {tabs.map((tab) => (
-            <li key={tab}>
-              {isCreatorUser && ( // Show checkboxes only for creator users
+            <li
+              key={tab}
+              onClick={() => setSelectedTab(tab)} // Open tab on click
+              className={
+                selectedTab === tab
+                  ? "tab-item active-tab-item"
+                  : "tab-item"
+              }
+            >
+              {isCreatorUser && (
                 <label className="tab-checkbox">
                   <input
                     type="checkbox"
@@ -46,32 +92,35 @@ const Details = ({ isCreatorUser }) => {
                     onChange={() => toggleTab(tab)}
                   />
                   <span
-                    className={activeTabs.includes(tab) ? "checkbox-label active" : "checkbox-label"}
+                    className={
+                      activeTabs.includes(tab)
+                        ? "checkbox-label active"
+                        : "checkbox-label"
+                    }
                   >
                     {tab}
                   </span>
                 </label>
               )}
-              {!isCreatorUser && <span>{tab}</span>} {/* Non-creator users see the tab name only */}
+              {!isCreatorUser && activeTabs.includes(tab) && <span>{tab}</span>}
             </li>
           ))}
         </ul>
-        <div className="add-tab-container">
-          <input
-            type="text"
-            placeholder="New Tab Name"
-            value={newTabName}
-            onChange={(e) => setNewTabName(e.target.value)}
-            disabled={!isCreatorUser} // Disable input for non-creator users
-          />
-          <button
-            onClick={addTab}
-            className={`add-tab-btn ${!isCreatorUser ? "disabled" : ""}`}
-            disabled={!isCreatorUser} // Disable button for non-creator users
-          >
-            {isCreatorUser ? "Add Tab" : "Add Disabled"}
-          </button>
-        </div>
+
+        {/* Only show the input and button in creator mode */}
+        {isCreatorUser && (
+          <div className="add-tab-container">
+            <input
+              type="text"
+              placeholder="New Tab Name"
+              value={newTabName}
+              onChange={(e) => setNewTabName(e.target.value)}
+            />
+            <button onClick={addTab} className="add-tab-btn">
+              Add Tab
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Content */}

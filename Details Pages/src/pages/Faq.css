@@ -78,7 +78,7 @@ body {
   .icon::after {
     content: "";
     position: absolute;
-    background-color:red;
+    background-color:rgb(24, 59, 86);
     transition: all 0.3s ease;
   }
   
@@ -129,9 +129,9 @@ body {
   }
   
   .pagination-btn.active {
-    background:red;
+    background:rgb(24, 59, 86);
     color: #fff;
-    border-color:red;
+    border-color:rgb(24, 59, 86);
   }
   
   .pagination-btn:hover {
@@ -159,7 +159,7 @@ body {
   
   .add-faq button {
     padding: 10px 20px;
-    background:red;
+    background:rgb(24, 59, 86);
     color: #fff;
     border: none;
     border-radius: 5px;

@@ -51,7 +51,7 @@
 }
 
 .checkbox-label.active {
-  color: red;
+  color: rgb(24, 59, 86);
   font-weight: bold;
 }
 
@@ -76,7 +76,7 @@
 .add-tab-btn {
   width: 100%;
   padding: 10px;
-  background-color: red;
+  background-color: rgb(24, 59, 86);
   color: white;
   border: none;
   border-radius: 5px;
@@ -87,6 +87,79 @@
 
 .add-tab-btn:hover {
   background-color: red;
+}
+
+
+
+.tab-item {
+  cursor: pointer;
+  padding: 8px;
+  transition: background 0.2s;
+}
+
+.tab-item:hover {
+  background-color: #f0f0f0;
+}
+
+.active-tab-item {
+  font-weight: bold;
+  background-color: #e0e0e0;
+}
+
+
+
+
+
+
+
+
+/* {Toggle Icon} */
+
+.toggle-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+  margin-left: 148px;
+}
+
+.toggle-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-left: 140px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  display: none; /* Initially hidden */
+}
+
+.toggle-icon:hover .toggle-menu {
+  display: flex; /* Show menu on hover */
+}
+
+.toggle-menu button {
+  background: none;
+  border: none;
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toggle-menu button:hover {
+  background-color: #eee;
+}
+
+.toggle-menu button.active {
+  font-weight: bold;
+  color: #007bff;
 }
 
 /* Main Content */
@@ -126,8 +199,7 @@
   background-color: red;
   color: white;
   font-weight: bold;
-  border-top-right-radius:32px 50px;
-
+  border-top-right-radius: 32px 50px;
 }
 
 .tab:last-child {
