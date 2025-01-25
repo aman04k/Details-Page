@@ -5,7 +5,8 @@ import Community from "../pages/Community";
 import Offering from "../pages/Offering";
 import FundraisingStats from "../components/FundraisingStats";
 import { IoMenu } from "react-icons/io5";
-
+import { Link } from "react-router-dom";
+import Slider from "../components/Slider"
 const Details = () => {
   const [tabs, setTabs] = useState([
     "Overview",
@@ -21,6 +22,10 @@ const Details = () => {
     "Offering",
     // "Discussions",
   ]);
+
+
+
+
   const [selectedTab, setSelectedTab] = useState("Overview");
   const [newTabName, setNewTabName] = useState("");
   const [isCreatorUser, setIsCreatorUser] = useState(false); // Default to user mode
@@ -49,8 +54,11 @@ const Details = () => {
   };
 
   return (
+    <>
+    <Slider />
     <div className="container">
       {/* Sidebar */}
+      
       <div className="sidebar">
         {/* Toggle icon */}
         <div className="toggle-icon">
@@ -79,9 +87,7 @@ const Details = () => {
               key={tab}
               onClick={() => setSelectedTab(tab)} // Open tab on click
               className={
-                selectedTab === tab
-                  ? "tab-item active-tab-item"
-                  : "tab-item"
+                selectedTab === tab ? "tab-item active-tab-item" : "tab-item"
               }
             >
               {isCreatorUser && (
@@ -149,12 +155,18 @@ const Details = () => {
           {selectedTab === "Overview" && (
             <div className="overview">
               <h3>Overview</h3>
-              <button className="newCampaign">New CampaignForm </button>
-              
-              <div className="row">
-               
-                <div className="card">
-                  <h1>Fundraising</h1>
+              <Link className="newCampaign" to="/CampaignForm"   >
+                New Campaign Form
+                
+              </Link>
+
+              <div className="dashboard-row">
+              <div className="card1">
+                  <h4>Rounds</h4>
+                  <p>Details about funding rounds...</p>
+                </div>
+                <div className="card1">
+                  <h4>Fundraising</h4>
                   <FundraisingStats />
                 </div>
               </div>
@@ -214,6 +226,8 @@ const Details = () => {
         </div>
       </div>
     </div>
+    </>
+
   );
 };
 

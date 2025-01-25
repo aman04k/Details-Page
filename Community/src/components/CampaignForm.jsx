@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../components/CampaignForm.css";
-// import Slider from "../components/Slider"
 
 const CampaignForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -321,7 +320,6 @@ const CampaignForm = () => {
 
   return (
     <div className="campaign-form">
-      {/* <Slider /> */}
       {/* <h2>Create New Campaign</h2> */}
       <div className="progress-bar">
         <span>

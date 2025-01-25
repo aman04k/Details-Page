@@ -14,7 +14,7 @@ body {
   /* background: radial-gradient(black, #243b55); */
   background: #d8dde6;
   border-radius: 16px;
-  padding: 7px;
+  padding: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -146,7 +146,7 @@ table td:last-child {
   border-radius: 16px;
   padding: 25px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  margin: 0px 0;
+  margin: 20px 0;
   gap: 30px;
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
@@ -217,7 +217,7 @@ table td:last-child {
 .historical-data-simulation {
   font-family: Arial, sans-serif;
   max-width: 500px;
-  margin: 0px auto;
+  margin: 20px auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;

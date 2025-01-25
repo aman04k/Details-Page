@@ -1,17 +1,22 @@
-// src/App.jsx
 import { useState } from "react";
 import "./App.css";
-import Slider from "./components/Slider";
 import Details from "./components/Details";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CampaignForm from "./components/CampaignForm";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-   <>
-    <Slider />
-    <Details  />
-   </>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Details />} />
+
+          <Route path="/CampaignForm" element={<CampaignForm />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

@@ -23,7 +23,7 @@ ChartJS.register(
   Legend
 );
 
-function FundraisingStats() {
+function Aman() {
   const [dateFilter, setDateFilter] = useState("last7days");
   const [simulationAmount, setSimulationAmount] = useState(1000);
   const [estimatedReturn, setEstimatedReturn] = useState(0);
@@ -106,7 +106,7 @@ function FundraisingStats() {
 
   return (
     <div className="fundraising-stats">
-      <div style={{ display: "flex", gap: "10px" }}>
+      <div style={{ display: "flex", gap: "15px" }}>
         <div className="stats">
           <div className="stat">
             <h4>Tokens Sold</h4>
@@ -126,7 +126,7 @@ function FundraisingStats() {
         </div>
       </div>
 
-      <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
+      <div style={{ display: "flex", gap: "20px", marginTop: "20px" }}>
         <div className="top-investors">
           <h3>Top Investors</h3>
           <table>
@@ -171,4 +171,4 @@ function FundraisingStats() {
   );
 }
 
-export default FundraisingStats;
+export default Aman;
