@@ -19,7 +19,7 @@ const Details = () => {
     "Community",
     "Faq",
     "Offering",
-    "Discussions",
+    // "Discussions",
   ]);
   const [selectedTab, setSelectedTab] = useState("Overview");
   const [newTabName, setNewTabName] = useState("");
@@ -149,15 +149,12 @@ const Details = () => {
           {selectedTab === "Overview" && (
             <div className="overview">
               <h3>Overview</h3>
+              <button className="newCampaign">New CampaignForm </button>
+              
               <div className="row">
+               
                 <div className="card">
-                  <h4>Raise Info</h4>
-                  <p>Target Raise: ETH</p>
-                  <p>Actual Raise:</p>
-                </div>
-
-                {/* fundraising */}
-                <div className="card">
+                  <h1>Fundraising</h1>
                   <FundraisingStats />
                 </div>
               </div>
